@@ -1,0 +1,26 @@
+@use '../../../App.scss';
+
+@mixin button() {
+  display: inline-block;
+  background: #F4E041;
+  width: 100px;
+  height: 34px;
+  border-radius: 10px;
+  border: none;
+  @include App.bodyFont
+}
+
+button {
+  @include button;
+  margin-left: 10px;
+}
+
+button:hover {
+  background: #FFE302;
+}
+
+button:disabled {
+  background: #B4B4B4;
+  color: white;
+}
+

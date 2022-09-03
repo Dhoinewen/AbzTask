@@ -1,0 +1,29 @@
+@use '../../App';
+
+.userBox {
+  align-items: center;
+  text-align: center;
+  background: white;
+  min-height: 254px;
+  width: 282px;
+  @include App.bodyFont
+}
+
+.userBox img {
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.userName {
+  margin: 20px 0 20px 0;
+  text-align: center;
+  align-items: center;
+}
+
+.userName p {
+  overflow: hidden
+}
+
+.userEmail {
+  overflow: hidden;
+}

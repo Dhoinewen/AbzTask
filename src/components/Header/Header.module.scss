@@ -1,0 +1,25 @@
+@use '../../App';
+
+header {
+  width: 100%;
+  height: 60px;
+}
+
+header img {
+  height: 26px;
+  width: 106px;
+  margin: 17px 0 17px 60px;
+}
+
+.buttonBox {
+  float: right;
+  width: 220px;
+  height: 34px;
+  margin: 13px 60px 13px 0;
+  @include App.bodyFont;
+  text-align: center;
+  align-items: center;
+}
+
+
+

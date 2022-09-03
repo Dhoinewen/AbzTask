@@ -1,0 +1,28 @@
+@use '../../App';
+
+
+.altBody {
+  width: 100%;
+}
+
+.usersBox {
+  margin: 60px 60px 0 60px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 29px;
+}
+
+
+h1 {
+  @include App.HFont;
+  margin-top: 100px;
+  text-align: center;
+  align-items: center;
+}
+
+.buttonBox {
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+}

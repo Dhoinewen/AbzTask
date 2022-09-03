@@ -1,0 +1,26 @@
+@use '../../App';
+
+
+.registrationBox {
+  margin-top: 100px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.registrationBox h1 {
+  @include App.HFont
+}
+
+.inputsBox {
+  max-width: 348px;
+  margin: 0 auto;
+
+}
+
+
+.error {
+  @include App.bodyFont;
+  position: absolute;
+  color: red;
+}

@@ -1,0 +1,16 @@
+@use '../../../App';
+
+
+.radioInput {
+  margin-top: 50px;
+  @include App.bodyFont;
+  text-align: left;
+}
+
+.myInput {
+
+}
+
+.myInput input {
+}
+
