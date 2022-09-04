@@ -1,0 +1,48 @@
+@use '../../../App';
+@use './Input.module';
+
+
+input[type="file"] {
+  display: none;
+}
+
+.fileInput {
+  @include Input.inputStyle;
+  padding-left: 0;
+}
+
+.error {
+  @include Input.inputStyle;
+  padding-left: 0;
+  border-color: red;
+}
+
+.customFileUpload {
+  cursor: pointer;
+}
+
+.uploadText {
+  @include App.bodyFont;
+  width: 24%;
+  height: 100%;
+  float: left;
+  border-right: 1px solid #D0CFCF;
+}
+
+.uploadText div {
+  margin-top: 12px;
+}
+
+.fileNameText {
+  @include App.bodyFont;
+  width: 75%;
+  height: 100%;
+  color: #7E7E7E;
+
+}
+
+.fileNameText div {
+  margin-top: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+}

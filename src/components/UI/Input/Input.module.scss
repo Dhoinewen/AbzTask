@@ -1,16 +1,26 @@
 @use '../../../App';
 
-.inputBox {
-  margin-top: 50px;
-}
-
-.inputBox input {
-  @include App.bodyFont;
+@mixin inputStyle {
   height: 54px;
   width: 328px;
   padding-left: 16px;
   background: #F8F8F8;
   border: 1px solid #D0CFCF;
   border-radius: 4px;
+  margin-top: 50px;
 }
+
+.inputBox input {
+  @include App.bodyFont;
+  @include inputStyle;
+}
+
+.error input {
+  @include App.bodyFont;
+  @include inputStyle;
+  border: 1px solid red;
+}
+
+
+
 

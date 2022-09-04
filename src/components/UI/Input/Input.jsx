@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './Input.module.scss'
 
-const Input = ({value, name, type, placeholder, blurHandler, handler, errorBorderColor}) => {
+const Input = ({value, name, type, placeholder, blurHandler, handler, errorInData}) => {
     return (
-        <div className={s.inputBox}>
+        <div className={!errorInData ? s.inputBox : s.error}>
             <input onBlur={e => blurHandler(e)} value={value} name={name} type={type} placeholder={placeholder}
-                   onChange={e => handler(e)} style={{'borderColor': errorBorderColor}}/>
+                   onChange={e => handler(e)}/>
         </div>
     );
 };

@@ -3,11 +3,6 @@ import s from './RadioInput.module.scss'
 
 const RadioInput = ({positions, selectedPosition, setSelectedPosition}) => {
 
-
-    useEffect(() => {
-        console.log('Selected Position', typeof selectedPosition, selectedPosition)
-    }, [selectedPosition])
-
     function onChangeValue(e) {
         const target = e.target;
         if (target.checked) {
