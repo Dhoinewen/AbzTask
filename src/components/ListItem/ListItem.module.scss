@@ -1,5 +1,25 @@
 @use '../../App';
 
+@mixin userNameMain {
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+@mixin overflowText {
+  justify-content: center;
+  align-items: center;
+  padding: 3px 16px;
+  display: none;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  position: absolute;
+  overflow-wrap: anywhere;
+  max-width: 250px;
+
+}
+
 .userBox {
   align-items: center;
   text-align: center;
@@ -14,17 +34,43 @@
   margin-top: 20px;
 }
 
-.userName {
-  margin: 20px 0 20px 0;
-  text-align: center;
-  align-items: center;
-  overflow: hidden
+.fullUserName {
+  @include App.bodyFont;
+  @include overflowText;
 }
 
-.userName p {
-  overflow: hidden
+.userName {
+  @include userNameMain;
+}
+
+.overflowUserName {
+  @include userNameMain;
+}
+
+.overflowUserName:hover +.fullUserName {
+  display: flex;
+}
+
+.userPosition {
+  margin-top: 20px;
+}
+
+.fullEmail {
+  @include App.bodyFont;
+  @include overflowText;
 }
 
 .userEmail {
-  overflow: hidden;
+  @include App.bodyFont;
 }
+
+.overflowUserEmail {
+  @include App.bodyFont;
+}
+
+.overflowUserEmail:hover + .fullEmail {
+  display: flex;
+}
+
+
+

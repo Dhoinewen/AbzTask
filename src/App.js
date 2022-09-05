@@ -10,7 +10,7 @@ function App() {
     const postRef = useRef(null);
     const listRef = useRef(null)
 
-    const handleClick = (nav) => {
+    const handleClick = () => {
         postRef.current?.scrollIntoView({behavior: 'smooth'});
     }
 
