@@ -21,5 +21,23 @@ header img {
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  header img {
+    margin-left: 13px;
+  }
+  .buttonBox {
+    margin-right: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  header img {
+    margin-left: 13px;
+  }
+  .buttonBox {
+    margin-right: 13px;
+  }
+}
+
 
 

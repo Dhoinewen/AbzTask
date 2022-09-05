@@ -21,10 +21,59 @@ $background-color: #f8f8f8;
 .App {
   width: 1024px;
   background-color: $background-color;
+  margin: 0 auto;
 }
 
-
-.myImg {
+.imgContainer {
+  position: relative;
+  text-align: center;
+  background-image: url('./media/pexels-alexandr-podvalny-1227513.jpeg');
+  background-size: cover;
   width: 100%;
-  height: 650px;
+  height: 650-164px;
+  padding-top: 164px;
 }
+
+.textOnImage {
+  vertical-align: auto;
+  width: 380px;
+  margin: 0 auto;
+  color: white;
+}
+
+.textOnImage h1 {
+  @include HFont;
+  margin: 0 0 21px 0;
+}
+
+.textOnImage a {
+  @include bodyFont;
+}
+
+.textOnImage div {
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    width: 768px;
+  }
+  .imgContainer {
+    height: 500-89px;
+    padding-top: 89px;
+  }
+}
+
+@media (max-width: 360px) {
+  .App {
+    width: 360px;
+  }
+  .imgContainer {
+    height: 500-40px;
+    padding-top: 40px;
+  }
+  .textOnImage {
+    width: 328px;
+  }
+}
+

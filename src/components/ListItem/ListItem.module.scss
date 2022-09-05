@@ -5,7 +5,7 @@
   text-align: center;
   background: white;
   min-height: 254px;
-  width: 282px;
+  max-width: 100%;
   @include App.bodyFont
 }
 
