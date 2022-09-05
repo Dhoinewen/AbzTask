@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import s from './List.module.scss'
 import ListItem from "../ListItem/ListItem";
 import MyBtn from "../UI/Button/MyBtn";
 import axios from "axios";
 
-const List = () => {
+const List = forwardRef((props, ref) => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1)
@@ -30,7 +30,7 @@ const List = () => {
 
     return (
         isLoading ? <h1>Loading...</h1> :
-            <div className={s.altBody}>
+            <div ref={ref} className={s.altBody}>
                 <h1>Working with GET request</h1>
                 <div className={s.usersBox}>
                     {usersData.map(user => <ListItem key={user.id} user={user}/>)}
@@ -40,6 +40,6 @@ const List = () => {
                 </div>
             </div>
     );
-};
+});
 
 export default List;

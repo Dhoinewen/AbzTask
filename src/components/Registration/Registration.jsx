@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import s from './Registration.module.scss'
 import Input from "../UI/Input/Input";
 import axios from "axios";
@@ -6,7 +6,7 @@ import RadioInput from "../UI/RadioInput/RadioInput";
 import MyBtn from "../UI/Button/MyBtn";
 import FileInput from "../UI/Input/FileInput";
 
-const Registration = () => {
+const Registration = forwardRef((props, ref) => {
 
     const [selectedPosition, setSelectedPosition] = useState(0)
     const [positions, setPositions] = useState()
@@ -127,7 +127,7 @@ const Registration = () => {
     }
 
     return (
-        <div className={s.registrationBox}>
+        <div ref={ref} className={s.registrationBox}>
             <h1>Working with Post request</h1>
             <div className={s.inputsBox}>
                 <Input type='text' placeholder='Name' blurHandler={blurHandler} name='name' value={name}
@@ -151,6 +151,6 @@ const Registration = () => {
 
         </div>
     );
-};
+});
 
 export default Registration;

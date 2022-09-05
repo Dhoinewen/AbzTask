@@ -2,6 +2,9 @@ import React from 'react';
 import s from './ListItem.module.scss'
 
 const ListItem = ({user}) => {
+
+
+
     return (
         <div className={s.userBox}>
             <img src={user.photo} alt={user.id}/>

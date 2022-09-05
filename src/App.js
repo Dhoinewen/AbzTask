@@ -3,13 +3,25 @@ import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import Registration from "./components/Registration/Registration";
 import MyBtn from "./components/UI/Button/MyBtn";
+import {useEffect, useRef, useState} from "react";
 
 function App() {
 
 
+    const postRef = useRef(null);
+    const listRef = useRef(null)
+
+    useEffect(() => {
+        console.log(1)
+    }, [postRef])
+
+    const handleClick = (nav) => {
+        postRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+
     return (
         <div className="App">
-            <Header/>
+            <Header postRef={postRef} listRef={listRef}/>
             <div className={"imgContainer"}>
                 <div className="textOnImage">
                     <h1>Test assignment for front-end developer</h1>
@@ -18,11 +30,11 @@ function App() {
                         in mind. They should also be excited to learn, as the world of Front-End Development keeps
                         evolving.</a>
                     <div></div>
-                    <MyBtn text='Sign Up' active={false}></MyBtn>
+                    <MyBtn text='Sign Up' active={false} func={handleClick}></MyBtn>
                 </div>
             </div>
-            <List/>
-            <Registration/>
+            <List ref={listRef}/>
+            <Registration ref={postRef}/>
         </div>
     );
 }
