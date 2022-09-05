@@ -4,11 +4,21 @@ import ListItem from "../ListItem/ListItem";
 import MyBtn from "../UI/Button/MyBtn";
 import axios from "axios";
 
-const List = forwardRef((props, ref) => {
+const List = forwardRef(({addNewUser, setAddNewUser, setIsLoading, isLoading}, ref) => {
 
-    const [isLoading, setIsLoading] = useState(true)
+
     const [currentPage, setCurrentPage] = useState(1)
     const [usersData, setUsersData] = useState([])
+    const [totalPage, setTotalPage] = useState(0)
+
+    useEffect(() => {
+        if (addNewUser) {
+            setUsersData([])
+            setCurrentPage(1)
+            setIsLoading(true)
+            setAddNewUser(false)
+        }
+    }, [addNewUser])
 
     useEffect(() => {
         if (isLoading) {
@@ -17,26 +27,28 @@ const List = forwardRef((props, ref) => {
                 .then(response => {
                     setUsersData([...usersData, ...response.data.users])
                     setCurrentPage(prevState => prevState + 1)
+                    setTotalPage(response.data.total_pages)
                 })
                 .finally(() => setIsLoading(false))
         }
     }, [isLoading])
 
 
-    const clickMe = (e) => {
+    const moreUsers = (e) => {
         e.preventDefault()
         setIsLoading(true)
     }
 
     return (
         isLoading ? <h1>Loading...</h1> :
-            <div ref={ref} className={s.altBody}>
-                <h1>Working with GET request</h1>
+            <div className={s.altBody}>
+                <h1  ref={ref}>Working with GET request</h1>
                 <div className={s.usersBox}>
                     {usersData.map(user => <ListItem key={user.id} user={user}/>)}
                 </div>
                 <div className={s.buttonBox}>
-                    <MyBtn active={false} text='Show More' func={clickMe}></MyBtn>
+                    <MyBtn active={false} text='Show More' func={moreUsers}
+                           style={currentPage === totalPage ? {"display": "none"} : undefined}></MyBtn>
                 </div>
             </div>
     );

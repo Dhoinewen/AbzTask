@@ -17,9 +17,31 @@
   margin: 0 auto;
 }
 
-
 .error {
   @include App.bodyFont;
   position: absolute;
-  color: red;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #CB3D40;
+}
+
+.successImg {
+  position: absolute;
+  background: white;
+  border-radius: 20%;
+  width: 350px;
+}
+
+.example {
+  position: absolute;
+  @include App.bodyFont;
+  font-size: 12px;
+  line-height: 14px;
+  float: left;
+  color: #7E7E7E;
+  width: 100%;
+  text-align: left;
+  height: 32px;
 }
