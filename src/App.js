@@ -3,17 +3,12 @@ import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import Registration from "./components/Registration/Registration";
 import MyBtn from "./components/UI/Button/MyBtn";
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
 
 function App() {
 
-
     const postRef = useRef(null);
     const listRef = useRef(null)
-
-    useEffect(() => {
-        console.log(1)
-    }, [postRef])
 
     const handleClick = (nav) => {
         postRef.current?.scrollIntoView({behavior: 'smooth'});

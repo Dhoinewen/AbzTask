@@ -4,7 +4,7 @@ import s from './MyBtn.module.scss'
 const MyBtn = ({text, active, func, type}) => {
 
     return (
-        <button  onClick={() => func(text)} disabled={active} type={type}>
+        <button  onClick={func} disabled={active} type={type}>
             {text}
         </button>
     );
