@@ -116,8 +116,11 @@ const Registration = forwardRef(({setAddNewUser}, ref) => {
         }
     }
 
-    const clickButton = () => {
+    const registerNewUser = () => {
         const formData = new FormData();
+        setSuccessRegister(true)
+        setTimeout(() => setSuccessRegister(false), 2000)
+        setAddNewUser(true)
         formData.append('name', name)
         formData.append('email', email)
         formData.append('phone', number)
@@ -126,7 +129,6 @@ const Registration = forwardRef(({setAddNewUser}, ref) => {
         const URL = 'https://frontend-test-assignment-api.abz.agency/api/v1/users'
         axios.post(URL, formData, {headers: {token: token.token}})
             .then(response => {
-                console.log(response)
                 setSuccessRegister(true)
                 setTimeout(() => setSuccessRegister(false), 2000)
                 setAddNewUser(true)
@@ -135,12 +137,6 @@ const Registration = forwardRef(({setAddNewUser}, ref) => {
                 setErrorInRegister(true)
                 setErrorInRegisterText(error.response.data.message)
             })
-    }
-
-    const refresh = () => {
-        setSuccessRegister(true)
-        setTimeout(() => setSuccessRegister(false), 2000)
-        setAddNewUser(true)
     }
 
     if (isLoading) {
@@ -173,8 +169,7 @@ const Registration = forwardRef(({setAddNewUser}, ref) => {
                            errorInData={fileError === 'Not Valid Format'} name='name' blurHandler={blurHandler}/>
                 {fileError === 'Not Valid number' ? <div></div> : <div className={s.error}>{fileError}</div>}
                 <div style={{'marginTop': '50px'}}></div>
-                <MyBtn text='Sign Up' active={!formValid} type="submit" func={clickButton}/>
-                <MyBtn text='refresh' active={false} func={refresh}></MyBtn>
+                <MyBtn text='Sign Up' active={!formValid} type="submit" func={registerNewUser}/>
                 {!errorInRegister ? <div></div> :
                     <div className={s.error} style={{
                         "textAlign": "center",
